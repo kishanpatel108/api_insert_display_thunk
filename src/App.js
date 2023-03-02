@@ -11,8 +11,8 @@ function App() {
 
   const dispatch = useDispatch()
   const userList = useSelector((state) => state.usersList)
-  console.log("userList", userList);
-  const { users, loading, error } = userList
+  // console.log("userList", userList);
+  const { list, loading, error } = userList
 
   useEffect(() => {
     dispatch(userAction())
@@ -21,9 +21,11 @@ function App() {
   const  submitForm = (e) =>{
     e.preventDefault();
     const new_post = {
+      id:new Date().getTime().toString(),
       title: title,
       body: body,
     };
+    console.log("new_post",new_post);
     dispatch(createPost(new_post));
   }
   return (
@@ -50,7 +52,7 @@ function App() {
           : error ?
             <h2>{error}</h2>
             :
-            <Users users={users} />
+            <Users users={list} />
       }
     </div>
   );

@@ -15,6 +15,11 @@ export const createPost = (post) => async(dispatch)=> {
         const result = await axios.post("https://jsonplaceholder.typicode.com/posts",post);
         dispatch({
             type:GET_ADD_USERS,
-            payload:result.data
+            // payload:result.data
+            payload:{
+                id:post.id,
+                title:result.data.title,
+                body:result.data.body,
+            }
         })
 }

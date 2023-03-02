@@ -1,17 +1,19 @@
 import { GET_USERS_REQUEST, GET_USERS_SUCCESS, GET_USERS_FAIL, GET_ADD_USERS } from './../constants/userConstants';
-
-export const userReducer=(state={users:[]},action)=>{
+const initialState={
+    list:[]
+}
+export const userReducer=(state=initialState,action)=>{
     // console.log("state",state.users);
     switch (action.type) {
         case GET_USERS_REQUEST :
             return{
                 loading:true,
-                users:[]
+                list:[]
             }
         case GET_USERS_SUCCESS:
             return{
                 loading:false,
-                users:action.payload
+                list:action.payload
             }
         case GET_USERS_FAIL:
             return{
@@ -21,8 +23,8 @@ export const userReducer=(state={users:[]},action)=>{
         case GET_ADD_USERS:
             console.log(action.payload);
             return{
-               ...state,
-               users:[action.payload,...state.users]
+                ...state,
+                list:[action.payload,...state.list]
             }
         default:
             return state
