@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { deletePost, editPost } from './../redux/action/userAction';
+import { editPost } from './../redux/action/userAction';
 
 
 const Users = ({ users, setToggleUpdate }) => {

@@ -1,21 +1,8 @@
 import { GET_USERS_REQUEST, GET_USERS_SUCCESS, GET_USERS_FAIL, GET_ADD_NEW_USERS, GET_EDIT_USERS, GET_UPDATE_USER } from './../constants/userConstants';
 const initialState = {
     list: [],
-    // newEditData: {}
+    newEditData: {}
 }
-
-// const fid = (elem,action) =>{
-//     if(elem.id && elem.id.length)
-//     {
-//         console.log("Id",elem.id);
-//         return elem.id === action.payload.id
-//     }
-//     else {
-//         console.log("newId",elem.newid);
-//         return elem.newid === action.payload.newid
-//     }
-
-// }
 export const userReducer = (state = initialState, action) => {
 
     switch (action.type) {
